@@ -1,0 +1,22 @@
+version: "1"
+services:
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    restart: always  #  startup, failure will always restart
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.retention.time=10d'  # When to remove old data. Defaults to 15d
+      - '--storage.tsdb.retention.size=200MB' # The maximum number of bytes of storage blocks to retain. The oldest data will be removed first. Defaults disabled.
+    extra_hosts:
+      - host.docker.internal:host-gateway # allow access to host
+    ports:
+      - "9090:9090" # Bind port 9090 of the container to port 9090 of the host
+
+
+
+
+
+

@@ -1,0 +1,18 @@
+{
+  "name": "prometheus-express-example",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "esbuild src/server/index.js --bundle --outfile=build/server.js --platform=node",
+    "dev": "npm run build && env=DEV PORT=3333 node ./build/server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "esbuild": "^0.14.13",
+    "express": "^4.17.1",
+    "koa": "^2.13.4",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^10.1.1",
+    "koa-static": "^5.0.0",
+    "prom-client": "^14.0.1"
+  }
+}
