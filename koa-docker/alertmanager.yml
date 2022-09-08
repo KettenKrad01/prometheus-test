@@ -1,0 +1,34 @@
+global:
+  # ----设置邮箱信息
+  smtp_from: 'xxx@qq.com'            # 发件人
+  smtp_smarthost: 'smtp.qq.com:465'  # 邮箱服务器
+  smtp_auth_username: 'xxx@qq.com'   # 用户名
+  smtp_auth_password: 'xxxx'         # 授权码
+  smtp_require_tls: false
+
+route:
+  # 根据按标进行分组聚合，并作为同一次通知发送
+  group_by: ['alertname']
+  # 新告警分组等待时间，避免瞬时出现大量告警，多次发送通知。default = 30s
+  group_wait: 10s
+  # 告警分组发送通知的间隔时间，每个间隔时间检查是否有新的告警，有立即发送通知，没有判断是否满足 repeat_interval 时间。default = 5m
+  # 详细：https://jaanhio:me/blog/understanding-alertmanager/
+  group_interval: 1m
+  # 相同告警发送的时间间隔。default = 4h
+  repeat_interval: 5m # 发送告警间隔时间 s/m/h，如果指定时间内没有修复，则重新发送告警
+  # 默认使用 email 发送
+  receiver: 'email'
+  routes:
+    #子路由，可以匹配告警标签使用不同   receiver
+    - receiver: email
+      match_re:
+        team: ops
+
+receivers:
+  - name: 'email'
+    email_configs:
+      - to: 'aaaa@qq.com,xxx@qq.com'
+#  - name: 'webhook'
+#    webhook_configs:
+#      - url: 'http://host.docker.internal:3333/alert'  # post
+

@@ -1,0 +1,36 @@
+{
+  receiver: 'webhook',
+  status: 'firing',
+  alerts: [
+    {
+      status: 'firing',
+      labels: {
+        alertname: 'no pv dp',
+        serverity: 'high',
+        team: 'dp'
+      },
+      annotations: {
+        summary: 'dp   已停止运行超过 5m， 现在的值为 0'
+      },
+      startsAt: '2022-09-04T10:45:56.789Z',
+      endsAt: '0001-01-01T00:00:00Z',
+      generatorURL: 'http://315db763adb3:9090/graph?g0.expr=sum%28increase%28request_count%5B1m%5D%29%29+%3C+1&g0.tab=1',
+      fingerprint: 'e69216f536b0411d'
+    }
+  ],
+  groupLabels: {
+    alertname: 'no pv dp'
+  },
+  commonLabels: {
+    alertname: 'no pv dp',
+    serverity: 'high',
+    team: 'dp'
+  },
+  commonAnnotations: {
+    summary: 'dp   已停止运行超过 5m， 现在的值为 0'
+  },
+  externalURL: 'http://a5415b3b677e:9093',
+  version: '4',
+  groupKey: '{}/{team=~"^(?:dp)$"}:{alertname="no pv dp"}',
+  truncatedAlerts: 0
+}
