@@ -1,1 +1,1 @@
-# Learn how to implement single-sqa
+# Learn how to use Prometheus
