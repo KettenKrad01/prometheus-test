@@ -32,8 +32,7 @@ function main() {
     testGauge.set(Math.random() * 100)
     testHistogram.observe(Math.random() * 100)
     testSummary.observe(Math.random() * 100)
-
-  }, 14000)
+  }, 30000)
 
   const app = new Koa()
   const router = new Router()
