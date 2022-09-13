@@ -33,7 +33,7 @@ function main() {
     testHistogram.observe(Math.random() * 100)
     testSummary.observe(Math.random() * 100)
 
-  }, 2000)
+  }, 14000)
 
   const app = new Koa()
   const router = new Router()

@@ -3,10 +3,10 @@ groups:
     rules:
     - alert: no pv # 告警规则的名称
       expr: sum (increase(request_count[1m])) < 1 # 告警条件
-      for: 30s # 持续满足告警条件时长。 default = 0s
+      for: 1m # 持续满足告警条件时长。 default = 0s
       labels:
         serverity: high
         team: ls
       annotations:
-        summary: "程序已停止运行超过 30s"
+        summary: "no pv over 1 minute"
 

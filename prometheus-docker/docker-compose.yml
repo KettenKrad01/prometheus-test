@@ -32,8 +32,10 @@ services:
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
       - ./rules.yml:/etc/prometheus/rules/rules.yml
+      - ./prometheus_data:/prometheus_data:rw
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
+      - '--storage.tsdb.path=/prometheus_data'
       - "--storage.tsdb.retention.time=10d"  # When to remove old data. Defaults to 15d
       - "--storage.tsdb.retention.size=200MB" # The maximum number of bytes of storage blocks to retain. The oldest data will be removed first. Defaults disabled.
     extra_hosts:
