@@ -8,5 +8,5 @@ groups:
         serverity: high
         team: ls
       annotations:
-        summary: "no pv over 1 minute"
+        summary: "no pv over 5 minutes"
 
