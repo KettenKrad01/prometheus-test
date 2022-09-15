@@ -24,7 +24,7 @@ function main() {
   const testSummary = new promClient.Summary({
     name: 'test_summary',
     help: 'test summary',
-    buckets: [0.2, 0.4, 0.6, 0.99]
+    percentiles: [0.2, 0.4, 0.6, 0.99]
   })
 
   setInterval(() => {
